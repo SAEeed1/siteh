@@ -19,14 +19,16 @@ export default function Hero() {
       <div className={`container ${styles.heroGrid}`}>
         {/* Right Content */}
         <div className={styles.heroContent}>
-          <h1 className={styles.title}>
-            همراه هوشمند شما
-            <br />
-            <strong>در مسیر ازدواج</strong>
-          </h1>
-          <p className={styles.description}>
-            با ارزیابی علمی و طراحی مسیر اختصاصی، قدم به قدم تا انتخاب درست و یک زندگی موفق همراهتان هستیم.
-          </p>
+          <div className={styles.heroText}>
+            <h1 className={styles.title}>
+              همراه هوشمند شما
+              <br />
+              <strong>در مسیر ازدواج</strong>
+            </h1>
+            <p className={styles.description}>
+              با ارزیابی علمی و طراحی مسیر اختصاصی، قدم به قدم تا انتخاب درست و یک زندگی موفق همراهتان هستیم.
+            </p>
+          </div>
 
           <div className={styles.heroActions}>
             <a

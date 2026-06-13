@@ -31,6 +31,12 @@
   z-index: 10;
 }
 
+.heroText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -297,61 +303,88 @@
   }
 
   .heroGrid {
-    grid-template-columns: 1fr;
-    gap: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .heroContent {
+    display: contents;
+  }
+
+  .heroText {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
   }
 
-  .heroContent { align-items: center; }
-
-  .description {
-    margin-inline: auto;
-    font-size: 16px;
-  }
-
   .title {
-    font-size: 34px;
+    font-size: 32px;
     line-height: 1.4;
   }
 
-  .heroActions { justify-content: center; }
-
-  .trustRow {
-    justify-content: center;
-    gap: 14px;
-    font-size: 12px;
+  .description {
+    margin-inline: auto;
+    font-size: 15px;
+    line-height: 1.75;
   }
 
   .heroVisual {
-    height: 320px;
-    position: relative;
-    display: grid;
-    place-items: center;
+    order: 2;
+    height: 240px;
     width: 100%;
-    margin-top: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
   }
 
   .aquaCircle {
-    right: 50%;
-    transform: translateX(50%);
-    width: 260px;
-    height: 260px;
-    top: 20px;
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    right: auto;
   }
 
   .peopleBg {
+    position: relative;
     width: 280px;
     height: 220px;
-    right: 50%;
-    transform: translate(50%, -50%);
-    top: 50%;
+    left: auto;
+    top: auto;
+    transform: none;
     border-radius: 22px;
+    box-shadow: 0 10px 30px rgba(0, 169, 173, 0.08);
   }
 
   .plant { display: none; }
 
+  .heroActions {
+    order: 3;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+
   .heroCta {
     font-size: 15px !important;
     padding: 13px 28px !important;
+  }
+
+  .trustRow {
+    order: 4;
+    justify-content: center;
+    gap: 14px;
+    font-size: 12px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    margin-top: 5px;
   }
 }
