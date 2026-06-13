@@ -223,25 +223,52 @@
 }
 
 /* ── Responsive adjustments ── */
-@media (max-width: 768px) {
+@media (max-width: 880px) {
+  .ctaSection {
+    padding-top: 60px !important;
+    padding-bottom: 104px !important; /* Offset for the mobile floating BottomNav */
+    justify-content: center !important; /* Center the card vertically inside the viewport */
+    display: flex;
+    flex-direction: column;
+  }
+
   .ctaBox {
-    padding: 60px 24px;
-    border-radius: 24px;
+    padding: 40px 20px !important; /* More balanced and compact padding inside the card */
+    border-radius: 28px;
     background: rgba(255, 255, 255, 0.6);
+    width: 100%;
+    box-shadow:
+      0 20px 50px rgba(0, 169, 173, 0.05),
+      0 5px 15px rgba(0, 0, 0, 0.02);
   }
+
+  .ctaEyebrow {
+    margin-bottom: 16px !important;
+    font-size: 12.5px !important;
+    padding: 5px 14px !important;
+  }
+
   .ctaTitle {
-    font-size: 28px;
-    line-height: 1.4;
+    font-size: 25px !important;
+    line-height: 1.4 !important;
+    margin-bottom: 14px !important;
   }
+
   .ctaDesc {
-    font-size: 15px;
-    margin-bottom: 28px;
+    font-size: 14px !important;
+    line-height: 1.75 !important;
+    margin-bottom: 24px !important;
   }
+
   .ctaBtn {
-    font-size: 16px;
-    padding: 15px 32px;
+    font-size: 15.5px !important;
+    padding: 13px 30px !important;
+    margin-bottom: 18px !important;
+    border-radius: 14px !important;
   }
+
   .liveBadge {
-    font-size: 12.5px;
+    font-size: 12.5px !important;
+    padding: 6px 14px !important;
   }
 }

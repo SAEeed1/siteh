@@ -12,6 +12,51 @@
   padding-bottom: 80px;
 }
 
+/* Ambient background decorative blobs */
+.bgBlob1,
+.bgBlob2 {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+  opacity: 0.06;
+  z-index: 1;
+}
+
+:global([data-theme="dark"]) .bgBlob1,
+:global([data-theme="dark"]) .bgBlob2 {
+  opacity: 0.12;
+  filter: blur(100px);
+}
+
+.bgBlob1 {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+  top: -60px;
+  right: -80px;
+  animation: blobFloat1 16s ease-in-out infinite alternate;
+}
+
+.bgBlob2 {
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, var(--primary-2) 0%, transparent 70%);
+  bottom: 5%;
+  left: -100px;
+  animation: blobFloat2 18s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes blobFloat1 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(60px, 30px) scale(1.1); }
+}
+
+@keyframes blobFloat2 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-40px, -40px) scale(1.08); }
+}
+
 .heroGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;

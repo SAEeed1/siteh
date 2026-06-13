@@ -16,6 +16,10 @@ export default function Hero() {
 
   return (
     <section className={styles.hero}>
+      {/* Ambient background glowing blobs */}
+      <div className={styles.bgBlob1} aria-hidden="true" />
+      <div className={styles.bgBlob2} aria-hidden="true" />
+
       <div className={`container ${styles.heroGrid}`}>
         {/* Right Content */}
         <div className={styles.heroContent}>
