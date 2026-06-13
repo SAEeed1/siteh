@@ -376,6 +376,7 @@
   .heroActions {
     order: 3;
     justify-content: center;
+    margin-top: 3px !important;
     margin-bottom: 0;
   }
 
