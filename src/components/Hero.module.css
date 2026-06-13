@@ -13,22 +13,26 @@
 }
 
 .heroGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
+  gap: 28px;
   position: relative;
   z-index: 2;
+  width: 100%;
 }
 
 /* ══════════════════════════════════════
    CONTENT — LEFT SIDE
 ══════════════════════════════════════ */
-.heroContent {
+.heroText {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
   z-index: 10;
+  max-width: 800px;
 }
 
 .eyebrow {
@@ -46,9 +50,9 @@
 }
 
 .title {
-  font-size: 52px;
-  line-height: 1.22;
-  margin-bottom: 22px;
+  font-size: 48px;
+  line-height: 1.25;
+  margin-bottom: 16px;
   color: var(--ink);
   font-weight: 900;
 }
@@ -62,11 +66,11 @@
 }
 
 .description {
-  font-size: 18px;
+  font-size: 17px;
   color: var(--muted);
-  max-width: 480px;
-  margin-bottom: 40px;
-  line-height: 1.9;
+  max-width: 620px;
+  margin-bottom: 0;
+  line-height: 1.85;
 }
 
 /* ── CTA Actions ── */
@@ -74,7 +78,8 @@
   display: flex;
   gap: 14px;
   align-items: center;
-  margin-bottom: 44px;
+  margin-bottom: 12px;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -108,12 +113,14 @@
   display: flex;
   gap: 28px;
   flex-wrap: wrap;
+  justify-content: center;
   color: var(--muted);
   font-size: 13.5px;
   font-weight: 700;
   border-top: 1px solid var(--line);
-  padding-top: 24px;
+  padding-top: 20px;
   width: 100%;
+  max-width: 600px;
 }
 
 .trustItem {
@@ -133,43 +140,51 @@
    VISUAL — RIGHT SIDE
 ══════════════════════════════════════ */
 .heroVisual {
-  height: 600px;
+  width: 100%;
+  max-width: 640px;
+  height: 440px;
   position: relative;
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+  animation: floatHero 6s ease-in-out infinite;
+}
+
+@keyframes floatHero {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
 
 /* Ambient teal circle */
 .aquaCircle {
   position: absolute;
-  width: 480px;
-  height: 480px;
+  width: 420px;
+  height: 420px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(0,169,173,0.13) 0%, rgba(32,201,195,0.06) 70%, transparent 100%);
-  right: 30px;
-  top: 50px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   z-index: 1;
   animation: breathe 7s ease-in-out infinite;
 }
 
 @keyframes breathe {
-  0%, 100% { transform: scale(1);   opacity: 1;   }
-  50%       { transform: scale(1.04); opacity: 0.8; }
+  0%, 100% { transform: translate(-50%, -50%) scale(1);   opacity: 1;   }
+  50%       { transform: translate(-50%, -50%) scale(1.04); opacity: 0.8; }
 }
 
 /* Main image */
 .peopleBg {
-  position: absolute;
-  width: 520px;
-  height: 420px;
-  right: -20px;
-  top: 50%;
-  transform: translateY(-50%);
+  position: relative;
+  width: 100%;
+  height: 100%;
   z-index: 2;
   opacity: 0.95;
   pointer-events: none;
   overflow: hidden;
-  border-radius: 32px;
+  border-radius: 28px;
   box-shadow: 0 24px 60px rgba(0, 169, 173, 0.12);
 }
 
@@ -184,10 +199,10 @@
 ══════════════════════════════════════ */
 .plant {
   position: absolute;
-  right: 10px;
-  bottom: 10px;
-  width: 120px;
-  height: 240px;
+  right: -25px;
+  bottom: -15px;
+  width: 100px;
+  height: 200px;
   z-index: 3;
 }
 
@@ -276,18 +291,6 @@
 /* ══════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════ */
-@media (max-width: 1120px) {
-  .title { font-size: 44px; }
-  .peopleBg { width: 460px; height: 370px; }
-}
-
-@media (max-width: 960px) {
-  .title { font-size: 38px; }
-  .heroGrid { gap: 36px; }
-  .peopleBg { width: 400px; height: 320px; right: -10px; }
-  .aquaCircle { width: 380px; height: 380px; }
-}
-
 @media (max-width: 880px) {
   .hero {
     min-height: auto;
@@ -296,59 +299,33 @@
     padding-bottom: 20px !important;
   }
 
-  .heroGrid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-    text-align: center;
-  }
-
-  .heroContent { align-items: center; }
-
-  .description {
-    margin-inline: auto;
-    font-size: 16px;
-  }
-
   .title {
-    font-size: 34px;
+    font-size: 32px;
     line-height: 1.4;
   }
 
-  .heroActions { justify-content: center; }
-
-  .trustRow {
-    justify-content: center;
-    gap: 14px;
-    font-size: 12px;
+  .description {
+    font-size: 15px;
+    line-height: 1.75;
   }
 
   .heroVisual {
-    height: 320px;
-    position: relative;
-    display: grid;
-    place-items: center;
-    width: 100%;
-    margin-top: 10px;
+    height: 240px;
+    max-width: 300px;
+    margin: 10px auto;
   }
 
   .aquaCircle {
-    right: 50%;
-    transform: translateX(50%);
-    width: 260px;
-    height: 260px;
-    top: 20px;
-  }
-
-  .peopleBg {
-    width: 280px;
-    height: 220px;
-    right: 50%;
-    transform: translate(50%, -50%);
-    top: 50%;
-    border-radius: 22px;
+    width: 240px;
+    height: 240px;
   }
 
   .plant { display: none; }
+
+  .trustRow {
+    gap: 14px;
+    font-size: 12px;
+  }
 
   .heroCta {
     font-size: 15px !important;

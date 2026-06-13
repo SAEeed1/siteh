@@ -17,8 +17,8 @@ export default function Hero() {
   return (
     <section className={styles.hero}>
       <div className={`container ${styles.heroGrid}`}>
-        {/* Right Content */}
-        <div className={styles.heroContent}>
+        {/* Title and Description */}
+        <div className={styles.heroText}>
           <h1 className={styles.title}>
             همراه هوشمند شما
             <br />
@@ -27,93 +27,21 @@ export default function Hero() {
           <p className={styles.description}>
             با ارزیابی علمی و طراحی مسیر اختصاصی، قدم به قدم تا انتخاب درست و یک زندگی موفق همراهتان هستیم.
           </p>
-
-          <div className={styles.heroActions}>
-            <a
-              className={`btn btn-primary ${styles.heroCta}`}
-              href="#start"
-              onClick={handleStartClick}
-            >
-              شروع ارزیابی رایگان
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className={styles.arrowIcon}
-              >
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
-          </div>
-
-          <div className={styles.trustRow}>
-            <div className={styles.trustItem}>
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className={styles.trustIcon}
-              >
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
-              </svg>
-              <span>همراه هوشمند</span>
-            </div>
-            <div className={styles.trustItem}>
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className={styles.trustIcon}
-              >
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                <path d="m9 11 2 2 4-4"></path>
-              </svg>
-              <span>محتوای علمی و معتبر</span>
-            </div>
-            <div className={styles.trustItem}>
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className={styles.trustIcon}
-              >
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-              </svg>
-              <span>کاملاً محرمانه</span>
-            </div>
-          </div>
         </div>
 
-        {/* Left Visual */}
+        {/* Centered Image Visual with subtle float motion */}
         <div className={styles.heroVisual} aria-label="تصویر هوش مصنوعی حامین یار">
           <div className={styles.aquaCircle}></div>
-
           <div className={styles.peopleBg}>
             <Image
               src="/assets/hero-main-new.png"
               alt="پروفایل زوج حامینیار"
-              width={560}
-              height={400}
+              width={640}
+              height={440}
               priority
               style={{ objectFit: "cover" }}
             />
           </div>
-
           <div className={styles.plant} aria-hidden="true">
             <div className={styles.plantPot}></div>
             <div className={styles.plantLeaves}>
@@ -124,8 +52,78 @@ export default function Hero() {
               <span></span>
             </div>
           </div>
+        </div>
 
+        {/* Actions Button */}
+        <div className={styles.heroActions}>
+          <a
+            className={`btn btn-primary ${styles.heroCta}`}
+            href="#start"
+            onClick={handleStartClick}
+          >
+            شروع ارزیابی رایگان
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className={styles.arrowIcon}
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
 
+        {/* Trust metrics */}
+        <div className={styles.trustRow}>
+          <div className={styles.trustItem}>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className={styles.trustIcon}
+            >
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>همراه هوشمند</span>
+          </div>
+          <div className={styles.trustItem}>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className={styles.trustIcon}
+            >
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <path d="m9 11 2 2 4-4"></path>
+            </svg>
+            <span>محتوای علمی و معتبر</span>
+          </div>
+          <div className={styles.trustItem}>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className={styles.trustIcon}
+            >
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <span>کاملاً محرمانه</span>
+          </div>
         </div>
       </div>
     </section>
