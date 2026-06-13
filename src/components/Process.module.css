@@ -1,0 +1,328 @@
+/* ══════════════════════════════════════
+   PROCESS / TIMELINE SECTION
+══════════════════════════════════════ */
+.processSection {
+  padding: 60px 0 40px;
+  background: transparent;
+  justify-content: flex-start !important;
+}
+
+.processContainer {
+  position: relative;
+}
+
+/* ══════════════════════════════════════
+   TIMELINE WRAPPER
+══════════════════════════════════════ */
+.timeline {
+  position: relative;
+  padding: 0 0 20px;
+}
+
+/* ── Central track ── */
+.trackLine {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  transform: translateY(-50%);
+  background: rgba(0, 169, 173, 0.12);
+  border-radius: 4px;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.trackProgress {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 169, 173, 0.8) 0%,
+    rgba(32, 201, 195, 0.9) 50%,
+    rgba(255, 155, 39, 0.6) 100%
+  );
+  border-radius: 4px;
+  animation: trackGrow 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: right;
+}
+
+@keyframes trackGrow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* ── Steps row ── */
+.stepsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+  /* Top cards + node + bottom cards = 3 rows; node is centered */
+  min-height: 560px;
+}
+
+/* ── Each step column ── */
+.stepCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  gap: 0;
+}
+
+/* ══════════════════════════════════════
+   STEP CARD
+══════════════════════════════════════ */
+.stepCard {
+  width: 100%;
+  max-width: 176px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px 14px 16px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 6px 24px rgba(0, 169, 173, 0.05);
+  transition:
+    transform  0.32s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+  min-height: 220px;
+}
+
+:global([data-theme="dark"]) .stepCard {
+  background: rgba(15, 30, 35, 0.6);
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+.stepCard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 169, 173, 0.4);
+  box-shadow: 0 14px 36px rgba(0, 169, 173, 0.12);
+}
+
+/* Empty spacer for opposite side */
+.cardTopEmpty,
+.cardBottomEmpty {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  pointer-events: none;
+  min-height: 220px;
+}
+
+.cardTop { order: 1; }
+.cardTopEmpty { order: 1; }
+
+.cardBottom { order: 3; }
+.cardBottomEmpty { order: 3; }
+
+/* ══════════════════════════════════════
+   TRACK NODE (numbered circle on track)
+══════════════════════════════════════ */
+.trackNode {
+  order: 2;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  z-index: 3;
+}
+
+.nodeNum {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  font-size: 17px;
+  box-shadow:
+    0 0 0 4px rgba(255, 255, 255, 0.9),
+    0 6px 18px rgba(0, 169, 173, 0.25);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+  position: relative;
+  z-index: 3;
+}
+
+:global([data-theme="dark"]) .nodeNum {
+  box-shadow:
+    0 0 0 4px rgba(15, 30, 35, 0.9),
+    0 6px 18px rgba(0, 169, 173, 0.3);
+}
+
+.stepCol:hover .nodeNum {
+  transform: scale(1.15);
+  box-shadow:
+    0 0 0 5px rgba(255, 255, 255, 0.9),
+    0 8px 24px rgba(0, 169, 173, 0.35);
+}
+
+/* Vertical connector from node to card */
+.nodeLine {
+  width: 2px;
+  height: 28px;
+  background: linear-gradient(to bottom, rgba(0, 169, 173, 0.4), transparent);
+  border-radius: 2px;
+}
+
+.nodeLineTop {
+  order: -1; /* line goes UP (above node, connecting to top card) */
+  background: linear-gradient(to top, rgba(0, 169, 173, 0.4), transparent);
+}
+
+.nodeLineBottom {
+  order: 1;  /* line goes DOWN (below node, connecting to bottom card) */
+}
+
+/* ══════════════════════════════════════
+   ICON
+══════════════════════════════════════ */
+.iconWrap {
+  margin-bottom: 14px;
+}
+
+.iconCircle {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1.5px dashed rgba(255, 155, 39, 0.35);
+  box-shadow: 0 6px 18px rgba(255, 155, 39, 0.06);
+  display: grid;
+  place-items: center;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.25s, box-shadow 0.25s;
+}
+
+:global([data-theme="dark"]) .iconCircle {
+  background: rgba(15, 30, 35, 0.65);
+  border-color: rgba(255, 155, 39, 0.18);
+}
+
+.stepCard:hover .iconCircle {
+  transform: translateY(-4px) scale(1.06);
+  border-color: #ff9b27;
+  border-style: solid;
+  box-shadow: 0 12px 28px rgba(255, 155, 39, 0.15);
+}
+
+/* ══════════════════════════════════════
+   TYPOGRAPHY
+══════════════════════════════════════ */
+.stepTitle {
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--ink);
+  margin-bottom: 8px;
+  line-height: 1.35;
+  transition: color 0.2s;
+}
+
+.stepCard:hover .stepTitle {
+  color: var(--primary-dark);
+}
+
+.stepDesc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 150px;
+  margin: 0 auto;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE — collapse to vertical list
+══════════════════════════════════════ */
+@media (max-width: 1050px) {
+  .stepCard { max-width: 155px; padding: 16px 10px; }
+  .stepTitle { font-size: 14.5px; }
+  .stepDesc  { font-size: 12px; }
+  .iconCircle { width: 82px; height: 82px; }
+  .nodeNum { width: 38px; height: 38px; font-size: 15px; }
+}
+
+@media (max-width: 860px) {
+  .processSection {
+    padding: 32px 0 !important;
+  }
+
+  /* Switch to vertical single-column list */
+  .trackLine { display: none; }
+
+  .stepsRow {
+    flex-direction: column;
+    gap: 20px;
+    min-height: auto;
+    align-items: stretch;
+  }
+
+  .stepCol {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1.5px solid rgba(255, 255, 255, 0.75);
+    border-radius: 18px;
+    padding: 16px;
+    box-shadow: 0 4px 16px rgba(0, 169, 173, 0.04);
+  }
+
+  :global([data-theme="dark"]) .stepCol {
+    background: rgba(15, 30, 35, 0.6);
+    border-color: rgba(255, 255, 255, 0.07);
+  }
+
+  /* On mobile: node comes first, then card */
+  .trackNode { order: 0; flex-shrink: 0; }
+  .nodeLine  { display: none; }
+
+  .cardTop,
+  .cardBottom {
+    order: 1;
+    max-width: 100%;
+    min-height: auto;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    text-align: right;
+    padding: 0;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .cardTopEmpty,
+  .cardBottomEmpty { display: none; }
+
+  .iconCircle {
+    width: 68px;
+    height: 68px;
+    flex-shrink: 0;
+  }
+
+  .iconWrap { margin-bottom: 0; flex-shrink: 0; }
+
+  .stepTitle { font-size: 15px; }
+  .stepDesc  { font-size: 13px; max-width: 100%; }
+
+  .nodeNum {
+    width: 42px;
+    height: 42px;
+    font-size: 16px;
+  }
+}

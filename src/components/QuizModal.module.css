@@ -1,0 +1,247 @@
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 25, 30, 0.6);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.modalBox {
+  background: var(--card);
+  border: 1px solid var(--line);
+  width: min(540px, 100%);
+  border-radius: 28px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+  padding: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: scaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+[data-theme="dark"] .modalBox {
+  background: #0f1e23;
+  border-color: #172d34;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  left: 20px; /* RTL close button top-left placement */
+  background: var(--primary-soft);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: var(--primary-dark);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+[data-theme="dark"] .closeBtn {
+  background: #192e34;
+  color: var(--primary-2);
+}
+
+.closeBtn:hover {
+  background: var(--primary);
+  color: #ffffff;
+  transform: rotate(90deg);
+}
+
+.closeBtn svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* Modal Content Types */
+.introState h3 {
+  font-size: 24px;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.introState p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.introIcon {
+  font-size: 56px;
+  margin-bottom: 18px;
+  animation: bounce 2s infinite ease-in-out;
+}
+
+/* Quiz Step Indicator */
+.stepIndicator {
+  font-size: 13px;
+  color: var(--primary);
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.questionText {
+  font-size: 20px;
+  color: var(--ink);
+  margin-bottom: 24px;
+  font-weight: 900;
+}
+
+.optionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.optionBtn {
+  width: 100%;
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  color: var(--ink);
+  padding: 16px 20px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: right;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  font-family: inherit;
+}
+
+.optionBtn:hover {
+  border-color: var(--primary-2);
+  background: var(--primary-soft);
+  transform: translateX(-4px); /* RTL slide left */
+}
+
+[data-theme="dark"] .optionBtn {
+  background: #13262c;
+  border-color: #1b353e;
+}
+
+[data-theme="dark"] .optionBtn:hover {
+  background: #0f2c31;
+}
+
+/* Loader Screen */
+.loaderIcon {
+  width: 72px;
+  height: 72px;
+  border: 5px solid var(--primary-soft);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  margin: 24px 0;
+  animation: spin 1s linear infinite;
+}
+
+.loaderText {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* Results Screen */
+.resultsHeader {
+  color: var(--primary-dark);
+  font-size: 22px;
+  font-weight: 900;
+  margin-bottom: 24px;
+}
+
+[data-theme="dark"] .resultsHeader {
+  color: var(--primary-2);
+}
+
+.resultMetrics {
+  width: 100%;
+  background: var(--primary-soft);
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border: 1px solid rgba(0, 169, 173, 0.08);
+}
+
+[data-theme="dark"] .resultMetrics {
+  background: #11262d;
+  border-color: #193842;
+}
+
+.metricRow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.metricHeader {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.progressBar {
+  height: 8px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .progressBar {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--primary-2));
+  border-radius: 10px;
+  animation: barGrow 1.2s cubic-bezier(0.1, 1, 0.1, 1) forwards;
+}
+
+.resultDesc {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  text-align: justify;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}

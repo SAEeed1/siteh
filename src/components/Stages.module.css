@@ -1,0 +1,353 @@
+/* ══════════════════════════════════════
+   STAGES SECTION
+══════════════════════════════════════ */
+.stagesSection {
+  padding: 60px 0 40px;
+  background: transparent;
+  justify-content: flex-start !important;
+}
+
+.stagesContainer {
+  position: relative;
+}
+
+/* ── Grid ── */
+.stagesGrid {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0;
+}
+
+/* ══════════════════════════════════════
+   STAGE CARD
+══════════════════════════════════════ */
+.stageCard {
+  flex: 1;
+  max-width: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 20px 20px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  position: relative;
+  transition:
+    transform         0.32s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow        0.28s ease,
+    border-color      0.25s ease,
+    background        0.25s ease;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:global([data-theme="dark"]) .stageCard {
+  background: rgba(15, 30, 35, 0.55);
+  border-color: rgba(255, 255, 255, 0.07);
+}
+
+.stageCard:hover {
+  transform: translateY(-8px);
+  border-color: var(--stage-color);
+  box-shadow:
+    0 16px 40px var(--stage-color-mid),
+    0 4px 12px rgba(0,0,0,0.05);
+  background: var(--stage-color-soft);
+}
+
+/* ── Selected state ── */
+.stageCardSelected {
+  transform: translateY(-10px) !important;
+  border-color: var(--stage-color) !important;
+  border-width: 2px !important;
+  background: var(--stage-color-soft) !important;
+  box-shadow:
+    0 20px 48px var(--stage-color-mid),
+    0 0 0 3px var(--stage-color-soft),
+    0 4px 12px rgba(0,0,0,0.06) !important;
+}
+
+/* ── Check badge (top right) ── */
+.checkBadge {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--stage-color);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 12px var(--stage-color-mid);
+  animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.checkBadge svg {
+  width: 14px;
+  height: 14px;
+}
+
+@keyframes popIn {
+  from { transform: scale(0); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+/* ── Stage label chip ── */
+.stageLabel {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 800;
+  color: var(--stage-color);
+  background: var(--stage-color-soft);
+  border: 1px solid var(--stage-color-mid);
+  border-radius: 999px;
+  padding: 3px 12px;
+  margin-bottom: 18px;
+  letter-spacing: 0.2px;
+  transition: background 0.2s;
+}
+
+.stageCard:hover .stageLabel,
+.stageCardSelected .stageLabel {
+  background: var(--stage-color-mid);
+}
+
+/* ── Icon circle ── */
+.iconWrap {
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: center;
+}
+
+.iconCircle {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  border: 2px dashed var(--stage-color-mid);
+  box-shadow: 0 6px 18px var(--stage-color-soft);
+  display: grid;
+  place-items: center;
+  transition:
+    transform   0.32s cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-color 0.25s ease,
+    box-shadow   0.25s ease;
+}
+
+:global([data-theme="dark"]) .iconCircle {
+  background: rgba(15, 30, 35, 0.65);
+}
+
+.stageCard:hover .iconCircle,
+.stageCardSelected .iconCircle {
+  transform: translateY(-5px) scale(1.07);
+  border-color: var(--stage-color);
+  border-style: solid;
+  box-shadow: 0 12px 28px var(--stage-color-mid);
+}
+
+.iconImg {
+  transition: transform 0.28s ease;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.08));
+}
+
+.stageCard:hover .iconImg {
+  transform: rotate(4deg) scale(1.05);
+}
+
+/* ── Step number badge ── */
+.stepNum {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--stage-color-soft);
+  color: var(--stage-color);
+  border: 1.5px solid var(--stage-color-mid);
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  font-size: 13px;
+  margin-bottom: 12px;
+  transition: all 0.2s ease;
+}
+
+.stageCard:hover .stepNum,
+.stageCardSelected .stepNum {
+  background: var(--stage-color);
+  color: #ffffff;
+  border-color: var(--stage-color);
+  transform: scale(1.1);
+}
+
+/* ── Title & description ── */
+.stageTitle {
+  font-size: 17px;
+  font-weight: 900;
+  color: var(--ink);
+  margin-bottom: 10px;
+  line-height: 1.4;
+  transition: color 0.2s;
+}
+
+.stageCard:hover .stageTitle,
+.stageCardSelected .stageTitle {
+  color: var(--stage-color);
+}
+
+.stageDesc {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.85;
+  max-width: 170px;
+  margin: 0 auto 0;
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  padding-bottom: 18px;
+}
+
+/* ── CTA button ── */
+.miniBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 2px solid var(--stage-color-mid);
+  color: var(--stage-color);
+  border-radius: 12px;
+  padding: 9px 20px;
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 13.5px;
+  transition: all 0.22s ease;
+  cursor: pointer;
+  background: transparent;
+  margin-top: auto;
+  width: 100%;
+  justify-content: center;
+  pointer-events: none; /* card handles click */
+}
+
+.stageCard:hover .miniBtn {
+  background: var(--stage-color-soft);
+  border-color: var(--stage-color);
+}
+
+.stageCardSelected .miniBtn {
+  background: var(--stage-color);
+  border-color: var(--stage-color);
+  color: #ffffff;
+  box-shadow: 0 4px 14px var(--stage-color-mid);
+}
+
+/* ══════════════════════════════════════
+   CONNECTOR
+══════════════════════════════════════ */
+.connector {
+  flex: 0;
+  width: 48px;
+  min-width: 40px;
+  align-self: center;
+  margin-bottom: 48px; /* push below the desc/btn area — align with icon center */
+  flex-shrink: 0;
+}
+
+.connectorSvg {
+  width: 100%;
+  height: 24px;
+  overflow: visible;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 1100px) {
+  .stageCard { max-width: 210px; padding: 22px 14px 18px; }
+  .stageTitle { font-size: 15.5px; }
+  .stageDesc  { font-size: 12.5px; }
+  .iconCircle { width: 90px; height: 90px; }
+}
+
+@media (max-width: 880px) {
+  .stagesSection {
+    padding: 24px 0 32px !important;
+  }
+
+  .stagesGrid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+    align-items: stretch !important;
+  }
+
+  .stageCard {
+    max-width: 100% !important;
+    width: 100% !important;
+    flex-direction: column !important;
+    text-align: center !important;
+    padding: 16px 12px 14px !important;
+    border-radius: 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03) !important;
+  }
+
+  .iconWrap {
+    margin-bottom: 10px !important;
+  }
+
+  .iconCircle {
+    width: 64px !important;
+    height: 64px !important;
+    border-width: 1.5px !important;
+  }
+
+  .iconCircle img {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .stageLabel {
+    font-size: 10px !important;
+    padding: 2px 8px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .stepNum {
+    font-size: 11px !important;
+    width: 20px !important;
+    height: 20px !important;
+    margin-bottom: 6px !important;
+    border-width: 1px !important;
+  }
+
+  .stageTitle {
+    font-size: 13.5px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .stageDesc {
+    font-size: 11.5px !important;
+    line-height: 1.65 !important;
+    max-width: 100% !important;
+    padding-bottom: 10px !important;
+    flex-grow: 1;
+  }
+
+  .miniBtn {
+    font-size: 11px !important;
+    padding: 7px 12px !important;
+    border-radius: 8px !important;
+    width: 100% !important;
+    margin-top: auto !important;
+  }
+
+  .connector {
+    display: none !important;
+  }
+}

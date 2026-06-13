@@ -1,0 +1,247 @@
+/* ══════════════════════════════════════
+   FINAL CTA SECTION — Harmonized Glassmorphic
+   ══════════════════════════════════════ */
+.ctaSection {
+  padding: 60px 0 80px;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+  justify-content: flex-start !important;
+}
+
+/* ── CTA Box (Glassmorphic Container matching Features/Stages) ── */
+.ctaBox {
+  position: relative;
+  border-radius: 32px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 169, 173, 0.15);
+  box-shadow:
+    0 30px 70px rgba(0, 169, 173, 0.06),
+    0 10px 30px rgba(0, 0, 0, 0.02);
+  padding: 80px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.ctaVisible .ctaBox {
+  animation: floatUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes floatUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+/* ── Animated Background Blobs (Behind Glass) ── */
+.blob1,
+.blob2,
+.blob3 {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+  opacity: 0.15;
+  z-index: 1;
+}
+
+.blob1 {
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, var(--primary), transparent 70%);
+  top: -80px;
+  right: -60px;
+  animation: blobFloat1 10s ease-in-out infinite;
+}
+
+.blob2 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, #ff9b27, transparent 70%);
+  bottom: -60px;
+  left: 20%;
+  animation: blobFloat2 12s ease-in-out infinite 2s;
+}
+
+.blob3 {
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, #7c5cbf, transparent 70%);
+  top: 30%;
+  left: -40px;
+  animation: blobFloat1 14s ease-in-out infinite 4s;
+}
+
+@keyframes blobFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(20px, -20px) scale(1.05); }
+  66%       { transform: translate(-10px, 15px) scale(0.96); }
+}
+
+@keyframes blobFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%       { transform: translate(-25px, -15px) scale(1.08); }
+}
+
+/* ── Centered Content ── */
+.ctaContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 680px;
+  width: 100%;
+}
+
+/* ── Eyebrow Badge (Hero Style) ── */
+.ctaEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 169, 173, 0.08);
+  border: 1px solid rgba(0, 169, 173, 0.18);
+  color: var(--primary-dark);
+  padding: 7px 18px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 13.5px;
+  margin-bottom: 24px;
+}
+
+/* ── Title ── */
+.ctaTitle {
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 1.35;
+  margin-bottom: 18px;
+  color: var(--ink);
+  letter-spacing: -0.5px;
+}
+
+/* ── Description ── */
+.ctaDesc {
+  font-size: 17px;
+  color: var(--muted);
+  margin-bottom: 36px;
+  font-weight: 600;
+  line-height: 1.85;
+}
+
+/* ── Premium CTA Button (Matching Hero) ── */
+.ctaBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-2) 100%);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 17.5px;
+  font-weight: 900;
+  padding: 18px 44px;
+  border-radius: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+  box-shadow: 0 10px 28px rgba(0, 169, 173, 0.28);
+  margin-bottom: 24px;
+  border: none;
+}
+
+.ctaBtn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 36px rgba(0, 169, 173, 0.38);
+}
+
+.btnArrow {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.ctaBtn:hover .btnArrow {
+  transform: translateX(-5px);
+}
+
+/* Shimmer animation sweep */
+.shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 65%
+  );
+  background-size: 200% 100%;
+  animation: shimmerSlide 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmerSlide {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+/* ── Live Occupancy Badge (Light Theme style) ── */
+.liveBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 169, 173, 0.05);
+  border: 1px solid rgba(0, 169, 173, 0.12);
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--muted);
+  font-feature-settings: "ss01";
+}
+
+.liveDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+  animation: livePulse 2.5s ease-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes livePulse {
+  0%   { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5); }
+  70%  { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+/* ── Responsive adjustments ── */
+@media (max-width: 768px) {
+  .ctaBox {
+    padding: 60px 24px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.6);
+  }
+  .ctaTitle {
+    font-size: 28px;
+    line-height: 1.4;
+  }
+  .ctaDesc {
+    font-size: 15px;
+    margin-bottom: 28px;
+  }
+  .ctaBtn {
+    font-size: 16px;
+    padding: 15px 32px;
+  }
+  .liveBadge {
+    font-size: 12.5px;
+  }
+}
