@@ -296,18 +296,24 @@
 
 @media (max-width: 880px) {
   .hero {
-    min-height: auto;
+    min-height: 100vh;
     margin-top: 0 !important;
-    padding-top: 40px !important;
-    padding-bottom: 20px !important;
+    padding-top: 100px !important; /* give space under header */
+    padding-bottom: 24px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
   }
 
   .heroGrid {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
     text-align: center;
     align-items: center;
+    flex: 1;
+    width: 100%;
   }
 
   .heroContent {
@@ -385,6 +391,7 @@
     font-size: 12px;
     padding-top: 14px;
     border-top: 1px solid var(--line);
-    margin-top: 5px;
+    margin-top: auto; /* push to bottom */
+    width: 100%;
   }
 }
