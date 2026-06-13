@@ -299,7 +299,7 @@
     min-height: 100vh;
     margin-top: 0 !important;
     padding-top: 100px !important; /* give space under header */
-    padding-bottom: 102px !important; /* space above bottom nav (+2px higher) */
+    padding-bottom: 104px !important; /* space above bottom nav (+4px higher) */
     display: flex;
     flex-direction: column;
     justify-content: center;
