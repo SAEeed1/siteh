@@ -341,13 +341,13 @@
 
   .heroVisual {
     order: 2;
-    height: 240px;
+    height: 220px;
     width: 100%;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px auto;
+    margin: 14px auto !important;
   }
 
   .aquaCircle {
@@ -376,7 +376,7 @@
   .heroActions {
     order: 3;
     justify-content: center;
-    margin-top: 3px !important;
+    margin-top: 0 !important;
     margin-bottom: 0;
   }
 
